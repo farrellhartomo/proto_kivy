@@ -1,0 +1,92 @@
+#: import MDNavigationLayout kivymd.uix.navigationdrawer.MDNavigationLayout
+#: import md_icons kivymd.icon_definitions.md_icons
+
+<Box@BoxLayout>
+    canvas.before:
+        Color:
+            rgba: .3,.3,.3,.8
+        Rectangle:
+            size: self.size
+    orientation: 'vertical'
+    size: "280dp", "180dp"
+    size_hint: None,None
+    pos_hint: {"center_x": .5, "center_y": .5}
+    size: (600,900)
+    halign: 'center'
+
+<Spacer@Widget>
+    size_hint_y: None
+    height: "20dp"
+
+<RoundLogo@Widget>
+    size_hint: None,None
+    canvas: 
+        Ellipse:
+            source: 'f.png'
+
+<LoginPage>:
+    orientation: 'vertical'
+    FitImage: 
+        size_hint_y:None
+        height: Window.height
+        size: self.size
+        source: "bg.png"
+
+    BoxLayout:
+        Box:
+            BoxLayout:
+                RoundLogo:
+                    pos_hint: {'center_x': .5, 'center_y': 0.8}
+
+                MDLabel:
+                    text: "[font=Roboto-Bold] App for testing  [/font]" 
+                    markup: True
+                    font_size: "20sp"
+                    halign: 'center'
+                    size_hint: None,None
+                    pos_hint: {'center_x': .5, 'center_y': .45}
+                    size: 400,200
+
+                MDTextField:
+                    id: usr_txt
+                    pos_hint: {'center_x': .5, 'center_y': 0.1}
+                    hint_text: 'Your Username'
+                    size_hint_x: None
+                    width: 500
+                    on_text_validate: usr_pwd.focus=True
+                    canvas.before:
+                        Color:
+                            rgba: 1,1,1,1
+
+                MDTextField:
+                    id: usr_pwd
+                    pos_hint: {'center_x': .5, 'center_y': -0.15}
+                    hint_text: 'Your Password'
+                    password: True
+                    size_hint_x: None
+                    width: 500
+                    on_text_validate: root.verifyLogin()
+                    canvas.before:
+                        Color:
+                            rgba: 1,1,1,1
+
+            BoxLayout:
+            
+                MDRaisedButton:
+                    id: login_btn
+                    text: "Sign In"
+                    font_size: '12sp'
+                    size_hint: None,None
+                    pos_hint: {"center_x": .5, "center_y": 0.5}
+                    on_release: root.verifyLogin()
+
+                MDLabel:
+                    id: info_txt
+                    size_hint: None,None
+                    pos_hint: {"center_x": .5, "center_y": 0.2}
+                    halign:'center'
+                    font_size: "9sp"
+                    width: 400
+                    bold: True
+                    underline: True
+                    
