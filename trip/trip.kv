@@ -8,6 +8,7 @@
     pos_hint: {"center_x": .5, "center_y": .5}
     elevation: 10
     FitImage:
+        # source: '../bg.png'
         source: 'bg.png'
         height: 600
         size_hint_y: None
@@ -47,6 +48,7 @@
             size_hint: None, None
             size: "56dp", "56dp"
             source: "f.png"
+            # source: "../f.png"
     MDLabel:
         text: "Citiround"
         font_style: "Button"
@@ -89,6 +91,8 @@
             size: separator.width, 10
 
 <TripPage>
+    id:trip_page
+    name: 'trip_page'
     MDNavigationLayout:
         ScreenManager:
             id: screen_manager

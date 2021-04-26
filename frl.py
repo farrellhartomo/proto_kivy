@@ -11,12 +11,14 @@ Window.size = (480,705)
 from trip.trip import TripPage
 from login.login import LoginPage
 
-class MainScreen(BoxLayout):
-    screen_log = LoginPage()
-    def __init__(self, **kwargs):
+class MainScreen(ScreenManager):
+    
+    def __init__(self,**kwargs):
         super().__init__(**kwargs)
-        self.ids.scr_login.add_widget(self.screen_log)
-        self.ids.scr_trip.add_widget(self.screen_trip)
+        screen_log = LoginPage()
+        screen_trip = TripPage()
+        self.ids.scr_login.add_widget(screen_log)
+        self.ids.scr_trip.add_widget(screen_trip)
 
 class frlApp(MDApp):
     def build(self):

@@ -6,14 +6,18 @@
         Rectangle:
             pos: self.pos
             size: self.size
-            source: '../f.png'
+            # source: '../f.png'
+            source: 'f.png'
 
 <LoginPage>:
+    id:login_page
+    name: 'login_page'
     canvas.before:
         Rectangle:
             pos: self.pos
             size: self.size
-            source: "../bg.png"
+            source: "bg.png"
+            # source: "../bg.png"
 
     RelativeLayout:
         pos: self.parent.pos
