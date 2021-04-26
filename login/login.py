@@ -16,7 +16,7 @@ class LoginPage(BoxLayout):
 
         if username == "admin" and password == "admin":
             info.text = '[color=#ffffff]logged in successfully![/color]'
-            self.parent.parent.current = 'scr_login'
+            self.parent.parent.current = 'scr_trip'
         else:
             if username =='' and password == '':
                 info.text = '[color=#ffffff]Please enter username and password[/color]'
