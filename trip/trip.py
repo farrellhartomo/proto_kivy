@@ -32,10 +32,16 @@ class TripPage(BoxLayout):
     def load_icons(self):
         self.icon_items = {
             "account-cash":"Set your budget",
-            "taxi":"Travel Acommodation",
+            "map":"Travel Maps",
             "star":"Favourite Places",
             "application-cog":"Settings",
         }
+
+    def user_logout(self):
+        app = MDApp.get_running_app()
+        self.parent.parent.current = 'scr_login'
+        print(app.root.ids.scr_login.ids)
+
 
     def load_card_list(self):
         for i in range(5):
@@ -54,7 +60,8 @@ class TripPage(BoxLayout):
         
 
 class tripApp(MDApp):
-    def build(self):       
+    def build(self):
+        self.theme_cls.primary_palette = "Teal"
         return TripPage()
 
 if __name__ == '__main__':

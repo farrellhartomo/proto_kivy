@@ -17,11 +17,11 @@ class LoginPage(BoxLayout):
         if username == "admin" and password == "admin":
             info.text = '[color=#ffffff]logged in successfully![/color]'
             self.parent.parent.current = 'scr_trip'
+
+        elif username =='' and password == '':
+            info.text = '[color=#ffffff]Please enter username and password[/color]'
         else:
-            if username =='' and password == '':
-                info.text = '[color=#ffffff]Please enter username and password[/color]'
-            else:
-                info.text = '[color=#ffffff]Incorrect username or password[/color]'
+            info.text = '[color=#ffffff]Incorrect username or password[/color]'
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -29,6 +29,7 @@ class LoginPage(BoxLayout):
 
 class loginApp(MDApp):
     def build(self):
+        self.theme_cls.primary_palette = "Teal"
         return LoginPage()
 
 if __name__ == "__main__":

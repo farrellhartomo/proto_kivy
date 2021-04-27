@@ -1,24 +1,32 @@
-
 from kivy.lang import Builder
-
 from kivymd.app import MDApp
 from kivymd.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import ScreenManager, Screen
+import kivy.properties as kprop
+
 
 from kivy.core.window import Window
 Window.size = (480,705)
 
 from trip.trip import TripPage
 from login.login import LoginPage
+import db.sqldbinit as dbsetup 
+
+class TripScreen(TripPage):
+    trip_screen = kprop.ObjectProperty()
+
+class LoginScreen(LoginPage):
+    log_screen = kprop.ObjectProperty()
 
 class MainScreen(ScreenManager):
-    
+    def set_pages(self):
+        self.ids.scr_login.add_widget(LoginPage())
+        self.ids.scr_trip.add_widget(TripScreen())
+
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
-        screen_log = LoginPage()
-        screen_trip = TripPage()
-        self.ids.scr_login.add_widget(screen_log)
-        self.ids.scr_trip.add_widget(screen_trip)
+        self.set_pages()
+        dbsetup
 
 class frlApp(MDApp):
     def build(self):

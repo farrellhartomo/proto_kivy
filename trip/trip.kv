@@ -9,7 +9,7 @@
     elevation: 10
     FitImage:
         # source: '../bg.png'
-        source: 'bg.png'
+        source: 'images/bg.png'
         height: 600
         size_hint_y: None
         
@@ -47,7 +47,7 @@
             id: ava_logo
             size_hint: None, None
             size: "56dp", "56dp"
-            source: "f.png"
+            source: "images/f.png"
             # source: "../f.png"
     MDLabel:
         text: "Citiround"
@@ -110,6 +110,7 @@
                             color: 1,1,1
                             size_hint_y:None
                             pos_hint: {'center_y': .5}
+                            on_release: root.user_logout()
                             
 
                     ScrollView:
