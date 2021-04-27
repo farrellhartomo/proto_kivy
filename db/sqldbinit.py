@@ -12,7 +12,7 @@ class create_tables:
     #create city table (lookup)
     conn.execute("""CREATE TABLE citydb
         (
-            city_id INT PRIMARY KEY,
+            city_id INTEGER PRIMARY KEY AUTOINCREMENT,
             city_name TEXT,
             city_desc TEXT
         )""")
@@ -28,6 +28,25 @@ class create_tables:
 
         )""")
     
+class fill_tables:
+    #fill tuples to user tables
+    conn.execute("""INSERT INTO userdb(user_id,first_name,last_name) 
+    VALUES
+        (142342, 'John','Doe'),
+        (192387, 'Mark','Ronson')
+        """)
+    #fill tuples to city tables
+    conn.execute("""INSERT INTO citydb(city_name,city_desc)
+        VALUES
+            ("Stockholm","Visit Stockholm is your guide to Stockholm and the Stockholm Archipelago. Get tips on restaurants, cafés, bars, shops, events, exhibitions, and activities."),
+            ("Munich", "Munich tourism: Get all the information on places to visit, what to see and things to do in Munich, here on the city's official website!")
+        """)
+    #fill tuples to trip tables
+    # conn.execute("""INSERT INTO userdb(
+        
+    #     """)
+    
+
 create_tables
 conn.commit()
 conn.close()   

@@ -1,3 +1,6 @@
 {
-    "kvlang.pythonPath": "python"
+    "kvlang.pythonPath": "python",
+    "python.linting.pylintEnabled": false,
+    "python.linting.banditEnabled": true,
+    "python.linting.enabled": true
 }
