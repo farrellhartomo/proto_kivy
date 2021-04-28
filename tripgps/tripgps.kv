@@ -1,13 +1,27 @@
+#: import MapView kivy_garden.mapview.MapView
 
 <TripGpsPage>
     orientation: 'vertical'
     MDToolbar:
         id: top_bar
-        
 
     MDBoxLayout:
-
         TripMap:
+            id: tripmap
             lon: 106.8
             lat: -6.2
-            zoom: 7
+            zoom: 9
+            min_zoom: 3
+            on_lon:
+                print("lon",self.lon)
+            on_lat:
+                print("lat",self.lat)
+            MapMarker: 
+                source: "../images/mapmarker.png"
+                size_hint_y: None
+                height: 80
+                lon: 106.8
+                lat: -6.2
+                on_press:
+                    print("hello")
+                center_on: 10,100
